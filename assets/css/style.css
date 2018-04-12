@@ -1,0 +1,19 @@
+body {
+    background-image: url('../images/starwars-background.jpg');
+    background-size: 960px 1080px;
+    max-height: 100%;
+}
+
+.jumbotron {
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.row-btn {
+    margin: 0 auto;
+    width: fit-content;
+    margin-bottom: 15px;
+}
