@@ -33,3 +33,7 @@ body {
     width: fit-content;
     margin-bottom: 15px;
 }
+
+.card {
+    opacity: 0.9;
+}

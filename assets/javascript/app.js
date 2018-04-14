@@ -34,6 +34,7 @@ $(document).ready(function () {
     var losses = 0;
 
     var nextQuestion = function (i) { //i is index of current question
+        if (i < 0 || i > 5) return endGame();
         var counter = 10;
         timeOutput = setInterval(function () {
             counter--;
@@ -43,6 +44,7 @@ $(document).ready(function () {
             if (counter === 0) {
                 $('#time').html('Sorry, Time is Up!');
                 losses++;
+                questionCounter++;
                 $('#losses').text(losses);
                 clearInterval(timeOutput);
                 $('#startBtn').on('click', function () {
@@ -56,24 +58,27 @@ $(document).ready(function () {
             $('#option' + (j + 1)).html(optionArray[i][j]);
             $('#option' + (j + 1)).attr("data-question", i);
         }
+        $('.option').on('click', function () {
+            var optionText = $(this).text();
+            //This needs to be an integer
+            var i = parseInt($(this).attr("data-question"));
+            varifyAnswer(i, optionText);
+        })
     };
 
     $('#startBtn').on('click', function () {
         nextQuestion(0);
-        questionCounter++;
-        if (questionCounter === 6) {
-            questionArray = 0;
-            wins = 0;
-            losses = 0;
-        }
     });
 
     var varifyAnswer = function (i, selectedAnswer) {
+        $('.option').off('click'); // <---
         console.log(selectedAnswer);
         console.log(i);
         if (selectedAnswer === correctAnswers[i]) {
             wins++;
             $('#wins').text(wins);
+            questionCounter++;
+
             clearInterval(timeOutput);
             $('#time').html("Correct!");
 
@@ -86,28 +91,18 @@ $(document).ready(function () {
             $('#time').html("Wrong Answer!");
             losses++;
             $('#losses').text(losses);
+            questionCounter++;
+
             $('#startBtn').on('click', function () {
                 nextQuestion(i + 1);
             })
         }
 
     }
-
-    $('.option').on('click', function () {
-        console.log(this);
-        console.log(this.question);
-        var optionText = $(this).text();
-        //This needs to be an integer
-        var i = parseInt($(this).attr("data-question"));
-        varifyAnswer(i, optionText);
-    })
-
-    // $('#resetBtn').on('click', function () {
-    //     nextQuestion(0);
-    //     //reset all global variables***
-    //     wins = 0;
-    //     losses = 0;
-    //     questionArray = 0;
-    // });
-
+    function endGame() {
+        alert("Game Over!");
+        wins = 0;
+        losses = 0;
+        questionArray = 0;
+    }
 });
