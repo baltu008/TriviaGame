@@ -12,6 +12,22 @@ body {
     opacity: 0.9;
 }
 
+.jumbotron2 {
+    margin: 0 auto;
+    margin-top: 100px;
+    height: 250px;
+
+}
+
+.display-4 {
+    font-size: large;
+    font-weight: bold;
+}
+
+#question {
+    font-weight: bold;
+}
+
 .row-btn {
     margin: 0 auto;
     width: fit-content;

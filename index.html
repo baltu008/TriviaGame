@@ -24,35 +24,66 @@
 
 <body>
     <div class="container container--jumbotron">
-        <div class="row row--jumbotron">
-            <div class="jumbotron">
+        <div class="row row--jumbotron col-12">
+            <div class="jumbotron col-6" id="jumbotronBtn">
                 <h1 class="display-4">Star Wars Trivia Game!</h1>
                 <p class="lead">Press the "Start" button to begin!</p>
                 <div class="row row-btn">
-                    <a class="btn btn-primary btn-lg" href="#" id="startBtn" role="button">Start</a>
+                    <a class="btn btn-primary btn-lg" href="#jumbotronBtn" id="startBtn" role="button">Start</a>
                 </div>
                 <div>
                     <span id="time">10 Seconds!</span>
                 </div>
 
                 <hr class="my-4">
+                <p id="question"></p>
                 <p>Choose from one of the following options:</p>
                 <div class="row row-btn">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Option 1</a>
+                    <a class="btn option btn-primary btn-lg" data-question="0" href="#jumbotronBtn" role="button" id="option1">Option 1</a>
                 </div>
                 <div class="row row-btn">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Option 2</a>
+                    <a class="btn option btn-primary btn-lg" data-question="0" href="#jumbotronBtn" role="button" id="option2">Option 2</a>
                 </div>
                 <div class="row row-btn">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Option 3</a>
+                    <a class="btn option btn-primary btn-lg" data-question="0" href="#jumbotronBtn" role="button" id="option3">Option 3</a>
                 </div>
                 <div class="row row-btn">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Option 4</a>
+                    <a class="btn option btn-primary btn-lg" data-question="0" href="#jumbotronBtn" role="button" id="option4">Option 4</a>
                 </div>
             </div>
-        </div>
 
+            <div class="row col-6 mt-5">
+                <div class="col-6">
+                    <div class="card">
+                        <h5 class="card-header">Wins:</h5>
+                        <div class="card-body">
+                            <h3 id="wins"></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <h5 class="card-header">Losses:</h5>
+                        <div class="card-body">
+                            <h3 id="losses"></h3>
+                        </div>
+                    </div>
+                </div>
+            <!-- <div class="jumbotron jumbotron2">
+                <h5 class="display-4">Score Board</h5>
+                <p class="lead"></p>
+                <hr class="my-4">
+                <p class="score" id="wins">Wins:</p>
+                <p class="score" id="losses">Losses:</p>
+                <p class="lead">
+                </p>
+
+
+            </div> -->
+        </div>
     </div>
+
+
 
 
     <!-- Linking Javascript and JQuery -->
